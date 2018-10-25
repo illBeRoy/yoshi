@@ -6,6 +6,9 @@ module.exports = async () => {
     type => !type.endsWith('-typescript'),
   );
 
+  const hasTypescriptVersion = (projectType) =>
+    getProjectTypes().some(fullProjectType => fullProjectType === `${projectType}-typescript`)
+
   const gitConfig = getGitConfig.sync({ include: true, type: 'global' });
 
   const gitUser = gitConfig.user || {};
@@ -40,7 +43,7 @@ module.exports = async () => {
       })),
     },
     {
-      type: 'select',
+      type: projectType => hasTypescriptVersion(projectType) && 'select',
       name: 'transpiler',
       message: 'Choose JavaScript Transpiler',
       choices: [

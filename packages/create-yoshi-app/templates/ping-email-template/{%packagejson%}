@@ -1,0 +1,23 @@
+{
+  "name": "{%projectName%}",
+  "version": "1.0.0",
+  "license": "UNLICENSED",
+  "private": true,
+  "author": {
+    "name": "{%authorName%}",
+    "email": "{%authorEmail%}"
+  },
+  "scripts": {
+    "start": "email-templates-static-server & npm run storybook",
+    "storybook": "start-storybook -p 6006",
+    "test": "echo ok",
+    "build-storybook": "build-storybook"
+  },
+  "devDependencies": {
+    "@storybook/react": "^3.4.11",
+    "babel-core": "^6.26.3",
+    "ping-email-templates-storybook": "^1.0.1",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2"
+  }
+}

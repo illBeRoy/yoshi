@@ -1,0 +1,9 @@
+{
+  "from": "mail@helloworld.com",
+  "emails": {
+    "helloWorld": {
+      "filename": "hello.vm",
+      "subjectTranslationKey": "emailSubject"
+    }
+  }
+}

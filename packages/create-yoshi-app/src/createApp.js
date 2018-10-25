@@ -11,6 +11,7 @@ const runPrompt = require('./runPrompt');
 const generateProject = require('./generateProject');
 const verifyRegistry = require('./verifyRegistry');
 const verifyMinimumNodeVersion = require('./verifyMinimumNodeVersion');
+const getGeneratorOptionsForTemplate = require('./getGeneratorOptionsForTemplate');
 
 module.exports = async (workingDir, projectDirName) => {
   verifyWorkingDirectory(workingDir);
@@ -25,6 +26,7 @@ module.exports = async (workingDir, projectDirName) => {
   );
 
   const results = await runPrompt(workingDir);
+  const generatorOptions = getGeneratorOptionsForTemplate(results.templatePath);
 
   console.log(
     `\nCreating a new ${chalk.cyan(
@@ -39,7 +41,10 @@ module.exports = async (workingDir, projectDirName) => {
   }
 
   install(workingDir);
-  lintFix(workingDir);
+
+  if (!generatorOptions.doNotLint) {
+    lintFix(workingDir);
+  }
 
   console.log(
     `\nSuccess! 🙌  Created ${chalk.magenta(

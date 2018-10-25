@@ -1,5 +1,7 @@
 const chalk = require('chalk');
 const execa = require('execa');
+const fs = require('fs');
+const path = require('path');
 
 module.exports.clearConsole = () => process.stdout.write('\x1Bc');
 
@@ -29,6 +31,10 @@ module.exports.getRegistry = dir => {
 
   return stdout;
 };
+
+module.exports.isLintNeeded = dir => {
+  return !fs.existsSync(path.join(dir, '.nolint'));
+}
 
 module.exports.lintFix = dir => {
   console.log(`\nRunning ${chalk.magenta('yoshi lint --fix')}\n`);
