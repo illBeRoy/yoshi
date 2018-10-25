@@ -32,10 +32,6 @@ module.exports.getRegistry = dir => {
   return stdout;
 };
 
-module.exports.isLintNeeded = dir => {
-  return !fs.existsSync(path.join(dir, '.nolint'));
-}
-
 module.exports.lintFix = dir => {
   console.log(`\nRunning ${chalk.magenta('yoshi lint --fix')}\n`);
   execa.shellSync('npx yoshi lint --fix', {

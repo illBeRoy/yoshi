@@ -7,7 +7,7 @@ module.exports = async () => {
   );
 
   const hasTypescriptVersion = (projectType) =>
-    getProjectTypes().some(fullProjectType => fullProjectType === `${projectType}-typescript`)
+    getProjectTypes().some(fullProjectType => fullProjectType === `${projectType}-typescript`);
 
   const gitConfig = getGitConfig.sync({ include: true, type: 'global' });
 
