@@ -1,7 +1,5 @@
 const chalk = require('chalk');
 const execa = require('execa');
-const fs = require('fs');
-const path = require('path');
 
 module.exports.clearConsole = () => process.stdout.write('\x1Bc');
 
