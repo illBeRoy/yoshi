@@ -1,19 +1,7 @@
-const createApp = require('./createApp');
-const runPrompt = require('./runPrompt');
-const generateProject = require('./generateProject');
-const replaceTemplates = require('./replaceTemplates');
-const getValuesMap = require('./getValuesMap');
-const verifyWorkingDirectory = require('./verifyWorkingDirectory');
-const verifyRegistry = require('./verifyRegistry');
-const projects = require('./projects');
+#! /usr/bin/env node
+const { createApp, registry } = require('create-wix-app');
+const projectCreationSteps = require('./projectCreationSteps');
+const path = require('path');
 
-module.exports = {
-  createApp,
-  runPrompt,
-  generateProject,
-  replaceTemplates,
-  projects,
-  getValuesMap,
-  verifyRegistry,
-  verifyWorkingDirectory,
-};
+const templatesRegistry = registry.aLocalRegistry(path.resolve(__dirname, '../templates'));
+createApp('create-yoshi-app', templatesRegistry, projectCreationSteps);

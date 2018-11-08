@@ -1,52 +1,30 @@
 {
   "name": "create-yoshi-app",
-  "version": "3.19.0",
-  "description": "create yoshi powered apps",
+  "version": "1.0.0",
+  "description": "wix apps generator",
   "keywords": [
     "create",
-    "yoshi",
+    "wix",
     "init",
-    "generate"
+    "generate",
+    "rockyoursocks"
   ],
-  "author": "Ran Yitzhaki & Ronen Amiel",
+  "author": {
+    "name": "Roy Sommer",
+    "email": "royso@wix.com"
+  },
   "main": "src/index.js",
   "bin": {
-    "create-yoshi-app": "bin/create-yoshi-app.js"
+    "create-yoshi-app": "src/index.js"
   },
-  "scripts": {
-    "test": "jest",
-    "e2e": "DISABLE_SENTRY=1 node scripts/runE2E.js",
-    "dev": "node scripts/dev.js"
+  "publishConfig": {
+    "registry": "http://npm.dev.wixpress.com/"
   },
-  "jest": {
-    "testPathIgnorePatterns": [
-      "/node_modules/",
-      "/templates/",
-      "__fixtures__"
-    ],
-    "modulePathIgnorePatterns": [
-      "/templates/"
-    ],
-    "testEnvironment": "node"
+  "engines": {
+    "node": ">=8.7"
   },
   "dependencies": {
-    "chalk": "^2.4.1",
-    "commander": "^2.16.0",
-    "constant-case": "^2.0.0",
-    "execa": "^0.10.0",
-    "fs-extra": "^7.0.0",
-    "globby": "^8.0.1",
-    "parse-git-config": "^2.0.2",
-    "prompts": "^1.1.1",
-    "semver": "^5.5.1",
-    "validate-npm-package-name": "^3.0.0"
-  },
-  "devDependencies": {
-    "chokidar": "^2.0.4",
-    "clipboardy": "^1.2.3",
-    "find-cache-dir": "^2.0.0",
-    "jest": "^23.3.0",
-    "mocha-env-reporter": "^3.0.0",
-    "tempy": "^0.2.1"
+    "create-wix-app": "latest",
+    "execa": "^1.0.0"
   }
 }
